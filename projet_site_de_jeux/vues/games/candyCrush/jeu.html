@@ -1,0 +1,29 @@
+<head>
+    <title>Un jeu type candy crush version 1</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/candyCrush.css">
+    <script src="/js/candyCrush/script.js"></script>
+    <script src="/js/candyCrush/assets.js"></script>
+    <script src="/js/candyCrush/grille.js"></script>
+    <script src="/js/candyCrush/cookie.js"></script>
+    <script src="/js/candyCrush/utils.js"></script>
+    <script src="/lib/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+
+</head>
+
+<body>
+    <button onclick="grille.detecteTousLesAlignements();">Detecter tous les alignements</button>
+    <br>
+    <H1>Jeu type candy crush... version avec utilisation de divs</H1>
+    <div id="main">
+        <div id="infos">
+            <div>Temps : 0</div>
+            <div>Score : 0</div>
+            <div>niveau : 0</div>
+        </div>
+        <div id="grille">
+            <canvas id="myCanvas" width=800 height=800></canvas>
+        </div>
+    </div>
+</body>

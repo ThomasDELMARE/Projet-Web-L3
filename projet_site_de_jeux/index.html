@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Connexion au site de jeux</title>
+    <meta charset="UTF-8" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">    
+</head>
+
+<body id="connexionPage">
+  <header>
+    <div>
+      <br>
+      <br>
+      <h1 id="title">
+        Identifiez-vous afin d'accéder au site de jeux !
+      </h1>
+    </div>
+
+    <br>
+    <br>
+
+    <form id="connexionForm" onsubmit="return connexion()">
+      <div class="mb-3">
+        <label for="idLabel" id="idLabel" class="form-label">Identifiant</label>
+        <input class="form-control" id="connexionId" placeholder="Entrez votre nom de famille afin de vous identifier !">
+      </div>
+      <div class="mb-3">
+        <label for="passwordLabel" id="passwordLabel" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+      <br>
+      <button type="submit" id="connexionButton" class="btn btn-primary">Se connecter</button>
+      <br>
+      <br>
+    </form>
+    
+    <button id="creationButton" class="btn btn-primary" onclick="creerCompte()">Créer un compte</button>
+
+  </header>
+    
+    <!-- JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+  <script src="/js/script.js"></script>
+
+</body>
+</html>

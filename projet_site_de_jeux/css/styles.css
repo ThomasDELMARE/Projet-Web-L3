@@ -1,0 +1,151 @@
+/* Main styles */
+
+#connexionPage {
+    background-image: url('https://media.giphy.com/media/TxVVB6PfWMjE4/giphy.gif');
+}
+
+main {
+    height: 100vh;
+    background-color: rgba(255, 229, 209,0.4);
+}
+
+main > .container {
+    padding: 75px 15px 0;
+}
+
+main > .container-fluid {
+    padding: 75px 15px 0;
+    border: 2px solid;
+    border-radius: 25px;
+}
+
+#game_parameters {
+    margin-top: 10px;
+    width: 24rem;
+}
+
+#difficulty_selector {
+    width : 16rem;
+}
+
+#score, #difficulty, #gameType {
+    text-decoration: underline;
+}
+
+#replayButton {
+    text-align: center;
+    width: 16rem;
+}
+
+#deconnexion {
+    margin-left: 5px;
+    border: 2px solid;
+    border-radius: 25px;
+    color: grey;
+}
+
+#deconnexion:hover {
+    border: 2px solid;
+    border-radius: 25px;
+    color: white;   
+}
+
+#titre_jeu {
+    padding : 75px 15px 0;
+    text-align: center;
+}
+
+#emplacement_jeu {
+    width: 1000px; 
+    margin-left: 5%;
+}
+
+title {
+    padding: 75px 15px 0;
+}
+
+.flex-shrink-0 {
+    padding: 75px 15px 0; 
+    text-align: center;
+    background-color: white;
+}
+
+h1 {
+    font-family: 'Literata', serif;
+    text-decoration: underline;
+}
+
+h2 {
+    font-family: 'Literata', serif;
+    
+}
+
+.col-8 {
+    border-right: 2px solid;
+    height: auto;
+}
+
+/* Cards related */
+.card-img-top {
+    width:18rem;
+    height:18rem;
+    border-bottom: 2px solid;
+}
+
+.card {
+    width: 20rem;
+    border: 2px solid;
+}
+
+/* Connexion form related */
+
+#title {
+    margin-left: 33%;
+    color: white;
+    text-decoration: none;
+}
+
+#idLabel, #passwordLabel {
+    color: white;
+}
+
+#connexionForm {
+    margin-left: 40%;
+    width: 400px;
+}
+
+#connexionButton {
+    margin-left: 35%;
+}
+
+#creationButton {
+    margin-left: 46.5%;
+}
+
+/* Achievements related */
+
+#achievement_image {
+    margin-left: 100px;
+    height: 52px; 
+    width: 52px;
+}
+
+#achievement_name {
+    font-weight: bold;
+    height: 26px;
+}
+
+#achievement_description {
+    height: 26px;
+}
+
+/* Scoreboard related */
+
+#difficultyScoreboard {
+    font-weight: bold;
+}
+
+#gameName {
+    font-weight: bold;
+    text-decoration: underline;
+}

@@ -1,0 +1,110 @@
+#titre_jeu {
+    margin-top: 100px;
+    text-align: center;
+    
+}
+.container {
+    margin-top: 50px;
+}
+
+table {
+    border: 4px solid rgba(100, 100, 100);
+    width: 800px;
+    height: 600px;
+}
+
+thead > tr {
+    background-color: yellow;
+    text-align: center;
+    font-size: 16px;
+    
+    height: 35px;
+}
+
+.flagsDisplayer, .timerDisplayer, .scoreCounter {
+    font-style: normal;
+}
+
+.flagged > svg, .bi-flag-fill {
+    color: red;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  padding: 5px 5px 5px 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: inset 5px 5px 10px #FFF, inset -3px -3px 5px #777;
+
+  transition-property: background-color, box-shadow;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+.g-flag {
+    background-color: lime;
+}
+
+.b-flag {
+    background-color: orangered;
+}
+
+.cell::selection {
+  background: transparent;
+}
+
+.cell.revealed, .cell.flagged {
+  cursor: default;
+}
+
+.cell.revealed {
+  box-shadow: none;
+}
+
+.cell.adj-1 {
+    color: blue;
+}
+.cell.adj-2 {
+    color: green;
+}
+.cell.adj-3 {
+    color: red;
+}
+.cell.adj-4 {
+    color: purple;
+}
+.cell.adj-5 {
+    color: maroon;
+}
+.cell.adj-6 {
+    color: turquoise;
+}
+.cell.adj-7 {
+    color: black;
+}
+.cell.adj-8 {
+    color: white;
+}
+
+#deconnexion {
+    margin-left: 5px;
+    border: 2px solid;
+    border-radius: 25px;
+    color: grey;
+}
+
+#deconnexion:hover {
+    border: 2px solid;
+    border-radius: 25px;
+    color: white;   
+}

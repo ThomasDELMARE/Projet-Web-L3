@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Tableau des scores</title>
+    <meta charset="UTF-8" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">   
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/vues/accueil.html">MIAGE GAMES</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                                
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/vues/accueil.html">Accueil</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                                aria-expanded="false">Jeux</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                <li><a class="dropdown-item" href="/vues/games/candyCrush/candyCrush.html">Candy Crush</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/snake/snake.html">Snake</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/demineur/demineur.html">Démineur</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/vues/scoreboard.html" aria-disabled="true">Tableau des scores</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vues/a-propos.html" aria-disabled="true">À propos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="connexion">Connexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="deconnexion" data-bs-toggle="popover" onclick="deconnexion()"  title="Se déconnecter">Se déconnecter</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex">
+
+                        <input class="form-control" list="listeJeux" id="search" onchange="redirect(this)" placeholder="Recherchez un jeu !">
+                            <datalist id="listeJeux">
+                                <option value="Snake">
+                                <option value="Démineur">
+                                <option value="Candy Crush">
+                            </datalist>
+                    </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="row">
+            <div class="col-sm">
+                <label id='gameName'> SNAKE </label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row" >
+                    <div class="col-sm" id='difficultyScoreboard'> FACILE </div>
+                    <div class="col-sm" id='snakeFacile'> Pas encore de highscore ! </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'> MOYEN </div>
+                    <div class="col-sm" id='snakeMoyen'> Pas encore de highscore ! </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'> DIFFICILE </div>
+                    <div class="col-sm" id='snakeDifficile'> Pas encore de highscore ! </div>
+                </div>   
+            </div>
+            <div class="col-sm">
+                <label id='gameName'> DEMINEUR </label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>FACILE </div>
+                    <div class="col-sm" id='demineurFacile'> Pas encore de highscore ! </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>MOYEN </div>
+                    <div class="col-sm" id='demineurMoyen'> Pas encore de highscore ! </div>
+                </div>   
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>DIFFICILE </div>
+                    <div class="col-sm" id='demineurDifficile'> Pas encore de highscore ! </div>
+                </div>               
+            </div>
+            <div class="col-sm">
+                <label id='gameName'> CANDY CRUSH </label>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>FACILE </div>
+                    <div class="col-sm" id='candyCrushFacile'> Pas encore de highscore ! </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>MOYEN </div>
+                    <div class="col-sm" id='candyCrushMoyen'> Pas encore de highscore ! </div>
+                </div>                
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm" id='difficultyScoreboard'>DIFFICILE </div>
+                    <div class="col-sm" id='candyCrushDifficile'> Pas encore de highscore ! </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>    
+</header>
+     
+    <!-- JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

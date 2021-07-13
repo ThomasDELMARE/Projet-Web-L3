@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Site de jeux</title>
+        <meta charset="UTF-8"/>
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/vues/accueil.html">MIAGE GAMES</a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                                    
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/vues/accueil.html">Accueil</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Jeux</a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                    <li><a class="dropdown-item" href="/vues/games/candyCrush/candyCrush.html">Candy Crush</a></li>
+                                    <li><a class="dropdown-item" href="/vues/games/snake/snake.html">Snake</a></li>
+                                    <li><a class="dropdown-item" href="/vues/games/demineur/demineur.html">Démineur</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/vues/scoreboard.html" aria-disabled="true">Tableau des scores</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="/vues/a-propos.html" aria-disabled="true">À propos</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" id="connexion">Connexion</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" id="deconnexion" data-bs-toggle="popover" onclick="deconnexion()"  title="Se déconnecter">Se déconnecter</a>
+                            </li>
+                        </ul>
+    
+                        <form class="d-flex">
+                            <input class="form-control" list="listeJeux" id="search" onchange="redirect(this)" placeholder="Recherchez un jeu !">
+                                <datalist id="listeJeux">
+                                    <option value="Snake">
+                                    <option value="Démineur">
+                                    <option value="Candy Crush">
+                                </datalist>
+                        </form>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Début de la partie principale de la page-->
+        <h1 id="titre_jeu">Démineur</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto game">
+                    <table>
+                        <thead>
+                            <tr>
+                            </tr>
+                        </thead>
+                        <tbody class="grid">
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-4" id="game_parameters">
+                    <ul class="nav nav-pills mb-3" id="optionsJeux" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="rulesTab" data-bs-toggle="pill" data-bs-target="#pills-rules" type="button" role="tab" aria-controls="pills-rules" aria-selected="true">Règles</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="gameDataTab" data-bs-toggle="pill" data-bs-target="#pills-game-data" type="button" role="tab" aria-controls="pills-game-data" aria-selected="false">Données de la partie</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="achievementsTab" data-bs-toggle="pill" data-bs-target="#pills-achievements" type="button" role="tab" aria-controls="pills-achievements" aria-selected="false">Trophées</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-rules" role="tabpanel" aria-labelledby="rulesTab">
+                            Le Démineur (Minesweeper) est un jeu vidéo de réflexion dont le but est de localiser des mines cachées dans une grille représentant un champ de mines virtuel, avec pour seule indication le nombre de mines dans les zones adjacentes.<br><br>
+                            Chaque case de la grille peut soit cacher une mine, soit être vide. Le but du jeu est de découvrir toutes les cases libres sans faire exploser les mines, c'est-à-dire sans cliquer sur les cases qui les dissimulent.<br><br>
+                            Lorsque le joueur clique sur une case libre comportant au moins une mine dans l'une de ses cases avoisinantes, un chiffre apparaît, indiquant ce nombre de mines. Si en revanche toutes les cases adjacentes sont vides, une case vide est affichée et la même opération est répétée sur ces cases, et ce jusqu'à ce que la zone vide soit entièrement délimitée par des chiffres. En comparant les différentes informations récoltées, le joueur peut ainsi progresser dans le déminage du terrain. S'il se trompe et clique sur une mine, il a perdu.
+                        </div>
+                        <div class="tab-pane fade" id="pills-game-data" role="tabpanel" aria-labelledby="gameDataTab">
+                            <h4 id="score">Score : <i class="scoreCounter"></i></h4>
+                            <h4 id="difficulty">
+                                Difficulté :
+                                    <select class="form-select difficultySelector" aria-label="difficulty_select" >
+                                        <option value="FACILE">FACILE</option>
+                                        <option selected value="MOYEN">MOYEN</option>
+                                        <option value="DIFFICILE">DIFFICILE</option>
+                                    </select>
+                            </h4>
+                            <br>
+                            <button class="playButton" onclick="restart()">
+                                Redémarrer la partie
+                            </button>
+                        </div>
+                        <div class="tab-pane fade" id="pills-achievements" role="tabpanel" aria-labelledby="achievementsTab">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <img src="/assets/images/achievements/lockedAchievement.png" id="demineurAchievement1">
+                                </div>
+                                <div class="col-sm">
+                                    <div id="achievement_name"><u>Pas de bol...</u></div>
+                                </div>
+                                <div class="col-sm">
+                                    <div id="achievement_description">La première case révélée est une bombe</div>                                                
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <img src="/assets/images/achievements/lockedAchievement.png" id="demineurAchievement2">
+                                </div>
+                                <div class="col-sm">
+                                    <div id="achievement_name"><u>Le démineur fou</u></div>
+                                </div>
+                                <div class="col-sm">
+                                    <div id="achievement_description">Gagner une partie en moins de 2 min en mode difficile</div>                                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our styles & scripts -->
+        <link rel="stylesheet" href="/css/demineur.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        
+        <script src="/js/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/lib/easytimer.min.js"></script>
+        <script src="/js/demineur/demineur.js"></script>
+    </body>
+</html>

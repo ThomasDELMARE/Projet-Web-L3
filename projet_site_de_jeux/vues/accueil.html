@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Accueil</title>
+    <meta charset="UTF-8" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/vues/accueil.html">MIAGE GAMES</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                                
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/vues/accueil.html">Accueil</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                                aria-expanded="false">Jeux</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                <li><a class="dropdown-item" href="/vues/games/candyCrush/candyCrush.html">Candy Crush</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/snake/snake.html">Snake</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/demineur/demineur.html">Démineur</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vues/scoreboard.html" aria-disabled="true">Tableau des scores</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vues/a-propos.html" aria-disabled="true">À propos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="connexion">Connexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="deconnexion" data-bs-toggle="popover" onclick="deconnexion()"  title="Se déconnecter">Se déconnecter</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <input class="form-control" list="listeJeux" id="search" onchange="redirect(this)" placeholder="Recherchez un jeu !">
+                            <datalist id="listeJeux">
+                                <option value="Snake">
+                                <option value="Démineur">
+                                <option value="Candy Crush">
+                            </datalist>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card" style="border: 2px solid">
+                        <img src="/assets/images/candy_crush.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Candy Crush</h5>
+                        <p class="card-text">Le but du jeu est de faire une combinaison d'au moins 3 bonbons colorés afin de faire le maximum de points dans le temps imparti ou atteindre un objectif de score précis.</p>
+                        <a href="/vues/games/candyCrush/candyCrush.html" class="btn btn-primary">JOUER</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm">
+                    <div class="card" style="border: 2px solid">
+                        <img src="/assets/images/snake.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">Snake</h5>
+                        <p class="card-text">Le jeu classique du Snake, votre but sera de manger les points disposés sur le terrain tout en faisant attention à ne pas rentrer en colision dans son propre corps !</p>
+                        <a href="/vues/games/snake/snake.html" class="btn btn-primary">JOUER</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-sm">
+                    <div class="card" style="border: 2px solid">
+                            <img src="/assets/images/démineur.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">Démineur</h5>
+                            <p class="card-text">Jeu de réflexion où il faut trouver la position des bombes générées aléatoirement sur la grille de jeu.</p>
+                            <a href="/vues/games/demineur/demineur.html" class="btn btn-primary">JOUER</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.js"
+        crossorigin="anonymous"></script>     
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

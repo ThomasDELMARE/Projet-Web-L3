@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Candy Crush</title>
+    <meta charset="UTF-8" />
+
+    <!-- JS -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">    
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/vues/accueil.html">MIAGE GAMES</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                                                
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/vues/accueil.html">Accueil</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                                aria-expanded="false">Jeux</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                <li><a class="dropdown-item" href="/vues/games/candyCrush/candyCrush.html">Candy Crush</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/snake/snake.html">Snake</a></li>
+                                <li><a class="dropdown-item" href="/vues/games/demineur/demineur.html">Démineur</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vues/scoreboard.html" aria-disabled="true">Tableau des scores</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vues/a-propos.html" aria-disabled="true">À propos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="connexion">Connexion</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" id="deconnexion" data-bs-toggle="popover" onclick="deconnexion()"  title="Se déconnecter">Se déconnecter</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <input class="form-control" list="listeJeux" id="search" onchange="redirect(this)" placeholder="Recherchez un jeu !">
+                            <datalist id="listeJeux">
+                                <option value="Snake">
+                                <option value="Démineur">
+                                <option value="Candy Crush">
+                            </datalist>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Début de la partie principale de la page-->
+        <h1 id="titre_jeu"> CANDY CRUSH</h1>
+
+        <div class="row">
+            <div class="col-8" id="emplacement_jeu">                
+                <head>
+                    <title>Un jeu type candy crush version 1</title>
+                    <meta charset="UTF-8">
+                    <link rel="stylesheet" href="/css/candyCrush.css">
+                    <link rel="stylesheet" href="/css/styles.css">
+                    <script src="/js/candyCrush/script.js"></script>
+                    <script src="/js/candyCrush/assets.js"></script>
+                    <script src="/js/candyCrush/grille.js"></script>
+                    <script src="/js/candyCrush/cookie.js"></script>
+                    <script src="/js/candyCrush/utils.js"></script>
+                    <script src="/lib/lodash.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+                </head>
+                
+                <body>
+                    <button onclick="grille.detecteTousLesAlignements();">Detecter tous les alignements</button>
+                    <br>
+                    <div id="main">
+                        <div id="infos">
+                            <div>Temps : 0</div>
+                            <div>Score : 0</div>
+                            <div>niveau : 0</div>
+                        </div>
+                        <div id="grille">
+                            <canvas id="myCanvas" width=800 height=800></canvas>
+                        </div>
+                    </div>
+                </body>
+
+
+
+            </div>
+            
+            <div class="col-4" id="game_parameters">
+                <ul class="nav nav-pills mb-3" id="optionsJeux" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="rulesTab" data-bs-toggle="pill" data-bs-target="#pills-rules" type="button" role="tab" aria-controls="pills-rules" aria-selected="true">Règles</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="gameDataTab" data-bs-toggle="pill" data-bs-target="#pills-game-data" type="button" role="tab" aria-controls="pills-game-data" aria-selected="false">Données de la partie</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="achievementsTab" data-bs-toggle="pill" data-bs-target="#pills-achievements" type="button" role="tab" aria-controls="pills-achievements" aria-selected="false">Trophées</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-rules" role="tabpanel" aria-labelledby="rulesTab">
+                        Le but du jeu Candy Crush est de faire des combos de 3 bonbons identiques afin d'augmenter votre score ! <br><br>
+                        Nous pouvons déplacer les bonbons d'une case à l'autre grâce au drag n'drop ou grâce aux clicks ! <br><br>
+                        Le but étant de faire selon les données entrées, le maximum de points pendant le temps imparti ou de faire un nombre de lignes en un nombre de coups précis !
+                    </div>
+                    <div class="tab-pane fade" id="pills-game-data" role="tabpanel" aria-labelledby="gameDataTab">
+                        <h4 id="score">
+                            Score :<br>
+                            <h4 id="counter"> 0000</h4><br>
+                        </h4>
+                        <h4 id="difficulty">
+                            Difficulté :
+                            <h4>
+                                <select class="form-select" id="difficulty_selector" aria-label="difficulty_select" >
+                                    <option selected value="FACILE">FACILE</option>
+                                    <option value="MOYEN">MOYEN</option>
+                                    <option value="DIFFICILE">DIFFICILE</option>
+                                  </select>
+                            </h4><br><br>
+                        </h4>
+                        <button id="replayButton">
+                            JOUER
+                        </button>
+                    </div>
+                    <div class="tab-pane fade" id="pills-achievements" role="tabpanel" aria-labelledby="achievementsTab">
+                        <div class="row">
+                            <div class="col-sm">
+                                <img src="/assets/images/achievements/lockedAchievement.png" id="candyCrushAchievement1">
+                            </div>
+                            <div class="col-sm">
+                                <div id="achievement_name">Il y a un début à tout...</div>
+                            </div>
+                            <div class="col-sm">
+                                <div id="achievement_description">Faites un alignement de 3 bonbons !</div>                                                
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm">
+                                <img src="/assets/images/achievements/lockedAchievement.png" id="candyCrushAchievement2">
+                            </div>
+                            <div class="col-sm">
+                                <div id="achievement_name">Bien joué !</div>
+                            </div>
+                            <div class="col-sm">
+                                <div id="achievement_description">Faites un alignement de 4 bonbons !</div>                                                
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+    </header>    
+        <!-- JS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+        <script src="/js/candyCrush/script.js"></script>
+        <script src="/js/script.js"></script>
+</body>
+</html>
